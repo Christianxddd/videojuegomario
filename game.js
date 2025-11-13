@@ -317,6 +317,19 @@ function update(){
   if(player.y > ROWS*TILE + 300) respawn();
 
   collideWithWorld(player);
+   // ------------------
+// Colisión con la bandera
+const flagX = WORLD_W - TILE * 4;
+const flagY = (ROWS - 3) * TILE - 32;
+const flagW = 38;  // ancho de la bandera
+const flagH = 80;  // alto de la bandera
+
+if(player.x + player.w > flagX && player.x < flagX + flagW &&
+   player.y + player.h > flagY && player.y < flagY + flagH){
+    // Redirige a otra página
+    window.location.href = 'https://www.ejemplo.com'; // reemplaza con tu URL
+}
+// ------------------
 
   // coins
   for(const c of coins){
@@ -568,3 +581,4 @@ btnImage.addEventListener('click', ()=> { overlay.classList.remove('hidden'); ov
    small helpers
    --------------------------- */
 function rectIntersect(a,b){ return !(a.x + a.w < b.x || a.x > b.x + b.w || a.y + a.h < b.y || a.y > b.y + b.h); }
+
