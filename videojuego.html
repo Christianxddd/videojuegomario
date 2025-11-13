@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Super Platformer — Fullscreen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="gameCanvas" tabindex="0"></canvas>
+
+  <!-- Minimal overlay (centered) for initial URLs and changing player image.
+       Not a bulky panel: it disappears al empezar y puede reabrirse con el botón "Imagen" del HUD. -->
+  <div id="overlay" class="overlay visible" aria-hidden="false">
+    <div class="card">
+      <h2>Personaliza tus sprites (opcional)</h2>
+      <p class="muted">Pega URLs de imágenes (player, goomba, koopa, block, coin, fondo). Si no pones nada, se usan sprites incorporados.</p>
+
+      <label>Jugador (URL) <input id="inpPlayer" placeholder="https://.../mario.png"></label>
+      <label>Goomba (URL) <input id="inpGoomba" placeholder="https://.../goomba.png"></label>
+      <label>Koopa (URL) <input id="inpKoopa" placeholder="https://.../koopa.png"></label>
+      <label>Bloque (URL) <input id="inpBlock" placeholder="https://.../block.png"></label>
+      <label>Moneda (URL) <input id="inpCoin" placeholder="https://.../coin.png"></label>
+      <label>Fondo (URL) <input id="inpBg" placeholder="https://.../bg.png"></label>
+
+      <div class="row">
+        <button id="btnLoad">Cargar y Jugar</button>
+        <button id="btnDefaults">Usar predeterminadas</button>
+      </div>
+
+      <p class="note">Si una imagen no aparece por CORS, prueba otra URL o usa las predeterminadas.</p>
+    </div>
+  </div>
+
+  <!-- HUD (minimal) -->
+  <div id="hud" class="hud">
+    <div class="left">
+      <span id="hudCoins">Monedas: 0</span>
+      <span id="hudScore">Puntos: 0</span>
+    </div>
+    <div class="right">
+      <button id="btnImage" class="hud-btn">Imagen</button>
+      <button id="btnRestart" class="hud-btn">Reiniciar</button>
+    </div>
+  </div>
+
+  <div id="minimap" class="minimap" title="Minimapa"></div>
+
+  <script src="game.js"></script>
+</body>
+</html>
